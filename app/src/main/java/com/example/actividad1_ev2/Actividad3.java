@@ -52,6 +52,7 @@ public class Actividad3 extends AppCompatActivity {
                 //creo objeto para desplazarme a la activity4
                 Intent c = new Intent(Actividad3.this, Actividad4.class);
                 //variables booleanas que almacenaran si un rbLUGAR y rbOPCION se han seleccionado
+
                 boolean xt=false;
                 boolean yt=false;
 
@@ -84,7 +85,8 @@ public class Actividad3 extends AppCompatActivity {
                         {
                             //llamo al objeto intent "c", y con putExtra(name,value), envio al otro Activity dichos datos
                             //En este caso son Continente,Lugar y Seleccion
-                            c.putExtra("CONTINENTE","ASIA");
+                            String dato = getIntent().getStringExtra("CONTINENTE");
+                            c.putExtra("CONTINENTE",dato);
                             c.putExtra("LUGAR",Lugar);
                             c.putExtra("OPCION",Sel);
                             //Ahora iniciamos la proxima actividad declarada en "c"
