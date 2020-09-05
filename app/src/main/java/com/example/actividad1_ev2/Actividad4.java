@@ -41,7 +41,6 @@ public class Actividad4 extends AppCompatActivity {
 
 
 
-
         txtCont=findViewById(R.id.txtConti);
         txtSeleccion= findViewById(R.id.txtSeleccion);
         txtLugar=findViewById(R.id.txtLugar);
@@ -80,7 +79,7 @@ public class Actividad4 extends AppCompatActivity {
 
         }
 
-        if(nombreContinente.equals("Americano")){
+        if(nombreContinente.equals("America")){
 
             txtSeleccion.setText(rock);
             txtLugar.setText(lugar);
@@ -114,13 +113,13 @@ public class Actividad4 extends AppCompatActivity {
         listaContPais=new ArrayList<Pais>();
 
         //llenamos el arraylist con objetos de la clase Continentes
-        listaContPais.add(new Pais("Americano", "Canada"));
-        listaContPais.add(new Pais("Americano", "Argentina"));
-        listaContPais.add(new Pais("Americano", "Brasil"));
-        listaContPais.add(new Pais("Americano", "El Salvador"));
-        listaContPais.add(new Pais("Americano", "Mexico"));
-        listaContPais.add(new Pais("Americano", "Chile"));
-        listaContPais.add(new Pais("Americano", "Belice"));
+        listaContPais.add(new Pais("America", "Canada"));
+        listaContPais.add(new Pais("America", "Argentina"));
+        listaContPais.add(new Pais("America", "Brasil"));
+        listaContPais.add(new Pais("America", "El Salvador"));
+        listaContPais.add(new Pais("America", "Mexico"));
+        listaContPais.add(new Pais("America", "Chile"));
+        listaContPais.add(new Pais("America", "Belice"));
 
 
     }
@@ -184,7 +183,7 @@ public class Actividad4 extends AppCompatActivity {
             LayoutInflater inflater=appCompatActivity.getLayoutInflater();
             View item=inflater.inflate(R.layout.xmlpaisesc, null);
 
-            TextView txtNom=item.findViewById(R.id.txtNom);
+            TextView txtNom=item.findViewById(R.id.txtNomContinen);
             //Mostramos la informacion de cada elemento dependiendo de su posicion
             txtNom.setText(listaContPais.get(position).getnPais());
 

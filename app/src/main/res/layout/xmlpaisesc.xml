@@ -12,7 +12,7 @@
         />
 
     <TextView
-        android:id="@+id/txtNom"
+        android:id="@+id/txtNomContinen"
         android:gravity="center"
         android:textSize="20dp"
         android:layout_width="382dp"
