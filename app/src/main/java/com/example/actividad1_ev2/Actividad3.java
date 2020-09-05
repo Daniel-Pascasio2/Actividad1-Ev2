@@ -14,13 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Actividad3 extends AppCompatActivity {
 
-    public String continente="ASIA";
+    public String continente;
     public String Lugar;
     public String Sel;
 
     private Button btnAtrasA2,btnSiguienteA4;
     private RadioButton rbRios,rbLagos,rbVolcanes,rbRadioButton,rbCheckBox;
-    private TextView txtPrueba;
+    private TextView txtContinente;
 
 
 
@@ -37,13 +37,17 @@ public class Actividad3 extends AppCompatActivity {
             rbVolcanes = findViewById(R.id.rbVolcanes);
             rbRadioButton = findViewById(R.id.rbRadioButton);
             rbCheckBox = findViewById(R.id.rbCheckBox);
+            txtContinente = findViewById(R.id.txtContinente);
 
+            //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
+            String n1 = getIntent().getStringExtra("CONTINENTE");
+            txtContinente.setText("Continente: "+n1);
 
             btnAtrasA2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
-                    Intent i = new Intent(Actividad3.this, MainActivity.class);
+                    Intent i = new Intent(Actividad3.this, Actividad2.class);
                     startActivity(i);
                 }
 
@@ -84,7 +88,8 @@ public class Actividad3 extends AppCompatActivity {
                         {
                             //llamo al objeto intent "c", y con putExtra(name,value), envio al otro Activity dichos datos
                             //En este caso son Continente,Lugar y Seleccion
-                            c.putExtra("CONTINENTE","ASIA");
+                            continente=getIntent().getStringExtra("CONTINENTE");
+                            c.putExtra("CONTINENTE",continente);
                             c.putExtra("LUGAR",Lugar);
                             c.putExtra("OPCION",Sel);
                             //Ahora iniciamos la proxima actividad declarada en "c"

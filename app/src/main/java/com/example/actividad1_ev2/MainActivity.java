@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btnAvanzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent unouno = new Intent(MainActivity.this, Actividad3.class);
+                Intent unouno = new Intent(MainActivity.this, Actividad2.class);
                 startActivity(unouno);
             }
         });
