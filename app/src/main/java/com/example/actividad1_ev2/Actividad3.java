@@ -55,6 +55,7 @@ public class Actividad3 extends AppCompatActivity {
             btnSiguienteA4.setOnClickListener(new View.OnClickListener() {
                 //creo objeto para desplazarme a la activity4
                 Intent c = new Intent(Actividad3.this, Actividad4.class);
+                Intent cc = new Intent(Actividad3.this, Actividad4.class);
                 //variables booleanas que almacenaran si un rbLUGAR y rbOPCION se han seleccionado
                 boolean xt=false;
                 boolean yt=false;
@@ -76,10 +77,25 @@ public class Actividad3 extends AppCompatActivity {
                         //Los RadioButton de OPCIONES
                         if(rbRadioButton.isChecked()){
                             Sel=rbRadioButton.getText().toString();
-                            yt=true;
+                            continente=getIntent().getStringExtra("CONTINENTE");
+
+                            c.putExtra("CONTINENTE",continente);
+                            c.putExtra("LUGAR",Lugar);
+                            c.putExtra("OPCION",Sel);
+                            //Ahora iniciamos la proxima actividad declarada en "c"
+                            startActivity(c);
                         }else if(rbCheckBox.isChecked()){
                             Sel=rbCheckBox.getText().toString();
-                            yt=true;
+                            continente=getIntent().getStringExtra("CONTINENTE");
+
+                            c.putExtra("CONTINENTE",continente);
+                            c.putExtra("LUGAR",Lugar);
+                            c.putExtra("OPCION",Sel);
+                            //Ahora iniciamos la proxima actividad declarada en "c"
+                            startActivity(c);
+                        }else
+                        {
+                            Mensajes("Seleccione un tipo de GROUP");
                         }
                     //si algun rb LUGARES se selecciono, es true, sino muestra mensaje TOAST
                     if(xt==true){
@@ -88,12 +104,7 @@ public class Actividad3 extends AppCompatActivity {
                         {
                             //llamo al objeto intent "c", y con putExtra(name,value), envio al otro Activity dichos datos
                             //En este caso son Continente,Lugar y Seleccion
-                            continente=getIntent().getStringExtra("CONTINENTE");
-                            c.putExtra("CONTINENTE",continente);
-                            c.putExtra("LUGAR",Lugar);
-                            c.putExtra("OPCION",Sel);
-                            //Ahora iniciamos la proxima actividad declarada en "c"
-                            startActivity(c);
+
                         }else{
 
                             Mensajes("Seleccione un tipo de GROUP");
