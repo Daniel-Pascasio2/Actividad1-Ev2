@@ -5,6 +5,10 @@ public class Pais {
     //Declaracion de variables
 
     private String nPais;
+    boolean estado;
+
+
+
 
     //Creamo un constructor para asignarle valores  a las variables
     public Pais(String nPais){
@@ -14,4 +18,13 @@ public class Pais {
     public String getnPais(){
         return nPais;
     }
+
+    public void setChekeado(boolean chekeado){
+        estado=chekeado;
+    }
+
+    public boolean isChekeado(){
+        return estado;
+    }
+
 }
