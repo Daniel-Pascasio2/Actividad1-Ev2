@@ -27,31 +27,31 @@ public class Actividad3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_actividad3);
-            //Declaracion de variables
-            btnAtrasA2 = findViewById(R.id.btnAtrasA2);
-            btnSiguienteA4= findViewById(R.id.btnSiguienteA4);
-            rbRios = findViewById(R.id.rbRios);
-            rbLagos = findViewById(R.id.rbLagos);
-            rbVolcanes = findViewById(R.id.rbVolcanes);
-            rbRadioButton = findViewById(R.id.rbRadioButton);
-            rbCheckBox = findViewById(R.id.rbCheckBox);
-            txtContinente = findViewById(R.id.txtContinente);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_actividad3);
+        //Declaracion de variables
+        btnAtrasA2 = findViewById(R.id.btnAtrasA2);
+        btnSiguienteA4= findViewById(R.id.btnSiguienteA4);
+        rbRios = findViewById(R.id.rbRios);
+        rbLagos = findViewById(R.id.rbLagos);
+        rbVolcanes = findViewById(R.id.rbVolcanes);
+        rbRadioButton = findViewById(R.id.rbRadioButton);
+        rbCheckBox = findViewById(R.id.rbCheckBox);
+        txtContinente = findViewById(R.id.txtContinente);
 
-            //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
-            String n1 = getIntent().getStringExtra("CONTINENTE");
-            txtContinente.setText("Continente: "+n1);
+        //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
+        final String continente = getIntent().getStringExtra("CONTINENTE");
+        txtContinente.setText("Continente: "+continente);
 
-            btnAtrasA2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
-                    Intent i = new Intent(Actividad3.this, Actividad2.class);
-                    startActivity(i);
-                }
+        btnAtrasA2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
+                Intent i = new Intent(Actividad3.this, Actividad2.class);
+                startActivity(i);
+            }
 
-            });
+        });
             btnSiguienteA4.setOnClickListener(new View.OnClickListener() {
                 //creo objeto para desplazarme a la activity4
                 Intent c = new Intent(Actividad3.this, Actividad4.class);
@@ -78,7 +78,7 @@ public class Actividad3 extends AppCompatActivity {
                         if(rbRadioButton.isChecked()){
 
                             Sel=rbRadioButton.getText().toString();
-                            continente=getIntent().getStringExtra("CONTINENTE");
+
 
                             c.putExtra("CONTINENTE",continente);
                             c.putExtra("LUGAR",Lugar);
@@ -95,7 +95,7 @@ public class Actividad3 extends AppCompatActivity {
                         if(rbCheckBox.isChecked()){
 
                             Sel=rbCheckBox.getText().toString();
-                            continente=getIntent().getStringExtra("CONTINENTE");
+
                             cc.putExtra("CONTINENTE",continente);
                             cc.putExtra("LUGAR",Lugar);
                             cc.putExtra("OPCION",Sel);
