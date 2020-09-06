@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,216 +24,370 @@ import java.util.ArrayList;
 public class Actividad4 extends AppCompatActivity {
 
     String lugar, dato;
-    TextView txtCont, txtSeleccion, txtLugar;
+    Button btnAtrasA4,btnContinuarA5;
+    RadioGroup rgButtons;
+    RadioButton rbPais1,rbPais2,rbPais3,rbPais4,rbPais5,rbPais6,rbPais7;
+    TextView txtCont, txtSeleccion,txtE;
     String nombreContinente;
-    ListView lvlPais;
-    String rock;
+    //ListView listaPaises;
+    String rock,capitala,paisa;
 
-    ArrayList<Pais> listaContPais;
+
+    ArrayList<String> paisesAmerica = new ArrayList<String>(7);
+    ArrayList<String> paisesAsia = new ArrayList<String>(7);
+    ArrayList<String> paisesOceania = new ArrayList<String>(7);
+    ArrayList<String> paisesAfrica = new ArrayList<String>(7);
+    ArrayList<String> paisesEuropa = new ArrayList<String>(7);
+
+    ArrayList<String> capitalesAmerica = new ArrayList<String>(7);
+    ArrayList<String> capitalesAsia = new ArrayList<String>(7);
+    ArrayList<String> capitalesOceania = new ArrayList<String>(7);
+    ArrayList<String> capitalesAfrica = new ArrayList<String>(7);
+    ArrayList<String> capitalesEuropa = new ArrayList<String>(7);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad4);
 
+        txtCont = findViewById(R.id.txtConti);
+        txtSeleccion = findViewById(R.id.txtSeleccion);
+        txtE = findViewById(R.id.txtE);
 
+        rbPais1 = findViewById(R.id.rbPais1);
+        rbPais2 = findViewById(R.id.rbPais2);
+        rbPais3 = findViewById(R.id.rbPais3);
+        rbPais4 = findViewById(R.id.rbPais4);
+        rbPais5 = findViewById(R.id.rbPais5);
+        rbPais6 = findViewById(R.id.rbPais6);
+        rbPais7 = findViewById(R.id.rbPais7);
+        btnAtrasA4 = findViewById(R.id.btnAtrasA4);
+        btnContinuarA5 = findViewById(R.id.btnContinuarA5);
+        //listaPaises = findViewById(R.id.listaPaises);
 
-
-            //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
-
-
-
-        txtCont=findViewById(R.id.txtConti);
-        txtSeleccion= findViewById(R.id.txtSeleccion);
-        txtLugar=findViewById(R.id.txtLugar);
-        lvlPais=findViewById(R.id.lvlPaises);
-
-        //Obtenemos el valor de el continente seleccionado
-        dato=getIntent().getStringExtra("CONTINENTE");
+        dato = getIntent().getStringExtra("CONTINENTE");
         txtCont.setText(dato);
-        nombreContinente=txtCont.getText().toString();
+        nombreContinente = txtCont.getText().toString();
 
         //Obtenemos el valor de el Radio o checkbox seleccionado
-        rock=getIntent().getStringExtra("OPCION");
-        lugar = getIntent().getStringExtra("LUGAR");  //Condicion redirecciona aqui Actividad41
-        if(lugar.equals("RadioButton")){
-            Intent intent=new Intent(Actividad4.this, Actividad41.class);
+        rock = getIntent().getStringExtra("OPCION");
+        lugar = getIntent().getStringExtra("LUGAR");
 
+        //Creando objeto de el RadioGroup
+        final RadioGroup ListadoRB = (RadioGroup)findViewById(R.id.rgButtons);
+
+        llenarContinententeAmericano();
+            llenarCapitalesAmericano();
+
+        llenarContinententeAfricano();
+              llenarCapitalesAfrica();
+
+        llenarContinententeEuropa();
+            llenarCapitalesEuropa();
+
+        llenarContinententeOceania();
+            llenarCapitalesOceania();
+
+        llenarContinententeAsia();
+            llenarCapitalesAsia();
+
+        switch (dato){
+
+            case "America":
+                rbPais1.setText(paisesAmerica.get(0));
+                rbPais2.setText(paisesAmerica.get(1));
+                rbPais3.setText(paisesAmerica.get(2));
+                rbPais4.setText(paisesAmerica.get(3));
+                rbPais5.setText(paisesAmerica.get(4));
+                rbPais6.setText(paisesAmerica.get(5));
+                rbPais7.setText(paisesAmerica.get(6));
+
+                /*
+                ArrayAdapter adaptador1 = new ArrayAdapter(this,android.R.layout.simple_list_item_1,paisesAmerica);
+                listaPaises.setAdapter(adaptador1);*/
+
+                break;
+            case "Africa":
+
+                rbPais1.setText(paisesAfrica.get(0));
+                rbPais2.setText(paisesAfrica.get(1));
+                rbPais3.setText(paisesAfrica.get(2));
+                rbPais4.setText(paisesAfrica.get(3));
+                rbPais5.setText(paisesAfrica.get(4));
+                rbPais6.setText(paisesAfrica.get(5));
+                rbPais7.setText(paisesAfrica.get(6));
+
+                /*
+                ArrayAdapter adaptador2 = new ArrayAdapter(this,android.R.layout.simple_list_item_1,paisesAfrica);
+                listaPaises.setAdapter(adaptador2);*/
+                break;
+            case "Europa":
+                rbPais1.setText(paisesEuropa.get(0));
+                rbPais2.setText(paisesEuropa.get(1));
+                rbPais3.setText(paisesEuropa.get(2));
+                rbPais4.setText(paisesEuropa.get(3));
+                rbPais5.setText(paisesEuropa.get(4));
+                rbPais6.setText(paisesEuropa.get(5));
+                rbPais7.setText(paisesEuropa.get(6));
+
+                /*
+                ArrayAdapter adaptador3 = new ArrayAdapter(this,android.R.layout.simple_list_item_1,paisesEuropa);
+                listaPaises.setAdapter(adaptador3);*/
+                break;
+            case"Asia":
+                rbPais1.setText(paisesAsia.get(0));
+                rbPais2.setText(paisesAsia.get(1));
+                rbPais3.setText(paisesAsia.get(2));
+                rbPais4.setText(paisesAsia.get(3));
+                rbPais5.setText(paisesAsia.get(4));
+                rbPais6.setText(paisesAsia.get(5));
+                rbPais7.setText(paisesAsia.get(6));
+
+                /*
+                ArrayAdapter adaptador4 = new ArrayAdapter(this,android.R.layout.simple_list_item_1,paisesAsia);
+                listaPaises.setAdapter(adaptador4);*/
+                break;
+            case "Oceania":
+
+                rbPais1.setText(paisesOceania.get(0));
+                rbPais2.setText(paisesOceania.get(1));
+                rbPais3.setText(paisesOceania.get(2));
+                rbPais4.setText(paisesOceania.get(3));
+                rbPais5.setText(paisesOceania.get(4));
+                rbPais6.setText(paisesOceania.get(5));
+                rbPais7.setText(paisesOceania.get(6));
+
+                /*
+                ArrayAdapter adaptador5 = new ArrayAdapter(this,android.R.layout.simple_list_item_1,paisesOceania);
+                listaPaises.setAdapter(adaptador5);*/
+
+                break;
         }
 
+        ListadoRB.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+
+            public void onCheckedChanged(RadioGroup group, int checkedId)
+            {
+
+                RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
+                boolean isChecked = checkedRadioButton.isChecked();
+                if (isChecked)
+                {
+
+                    switch (dato){
+                        //(checkedId-2131165368)
+                        case "America":
+                            //txtE.setText((checkedId-2131165368));
+                            capitala=capitalesAmerica.get((checkedId-2131165370));
+                            paisa = checkedRadioButton.getText().toString();
+
+                            break;
+                        case"Asia":
+                            //txtE.setText((checkedId-2131165368));
+                            //txtE.setText((checkedId-2131165368));
+                            capitala=capitalesAsia.get((checkedId-2131165370));
+                            paisa = checkedRadioButton.getText().toString();
+
+                            break;
+                        case"Europa":
+                            //txtE.setText((checkedId-2131165368));
+                            capitala=capitalesEuropa.get((checkedId-2131165370));
+                            paisa = checkedRadioButton.getText().toString();
+
+                            break;
+                        case"Oceania":
+                            //txtE.setText((checkedId-2131165368));
+                            capitala=capitalesOceania.get((checkedId-2131165370));
+                            paisa = checkedRadioButton.getText().toString();
+
+                            break;
+                        case"Africa":
+                            //txtLugar.setText(capitalesAfrica.get((checkedId-2131165370)));
+                            //txtE.setText((checkedId-2131165368));
+                            capitala=capitalesAfrica.get((checkedId-2131165370));
+                            paisa = checkedRadioButton.getText().toString();
+
+                            break;
+                    }
+
+                }
+            }
+        });
 
 
 
-        if(nombreContinente.equals("Europa")){
-            txtLugar.setText(lugar);
-            txtSeleccion.setText(rock);
-            llenarContinententeEuropa();
 
-        }
+        btnAtrasA4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
+                Intent i = new Intent(Actividad4.this, Actividad3.class);
+                startActivity(i);
+            }
 
-        if(nombreContinente.equals("Asia")){
-            txtLugar.setText(lugar);
-            txtSeleccion.setText(rock);
-            llenarContinententeAsia();
+        });
+        btnContinuarA5.setOnClickListener(new View.OnClickListener() {
+            Intent h = new Intent(Actividad4.this,Activity5.class);
+            @Override
+            public void onClick(View view) {
+                h.putExtra("CAPITAL",capitala);
+                h.putExtra("PAIS",paisa);
+                startActivity(h);
+            }
 
-        }
+        });
+        //h.putExtra("PAIS",paisa);
+        /*
+        listaPaises.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        if(nombreContinente.equals("Africa")){
-            txtLugar.setText(lugar);
-            txtSeleccion.setText(rock);
-            llenarContinententeAfricano();
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
 
-        }
+                String selItem = (String) listaPaises.getSelectedItem();
+                switch (dato){
 
-        if(nombreContinente.equals("America")){
+                    case("America"):
+                        txtLugar.setText(capitalesAmerica.get(position));
+                        break;
+                    case("Africa"):
+                        txtLugar.setText(capitalesAfrica.get(position));
+                        break;
+                    case("Europa"):
+                        txtLugar.setText(capitalesEuropa.get(position));
+                        break;
+                    case("Oceania"):
+                        txtLugar.setText(capitalesOceania.get(position));
+                        break;
+                    case("Asia"):
+                        txtLugar.setText(capitalesAsia.get(position));
+                        break;
+                }
 
-            txtSeleccion.setText(rock);
-            txtLugar.setText(lugar);
-            llenarContinententeAmericano();
+            }
 
-        }
-
-        if(nombreContinente.equals("Oceania")){
-            txtLugar.setText(lugar);
-            txtSeleccion.setText(rock);
-            llenarContinententeOceania();
-
-        }
-
-        AdaptadorPaises adaptadorP=new AdaptadorPaises(this);
-        lvlPais.setAdapter(adaptadorP);
-
-
-
-
+        });*/
 
     }
 
-    public void llenarContinententeOceania(){
-
-    }
 
     public void llenarContinententeAmericano(){
 
         //Creamos el objeto
-        listaContPais=new ArrayList<Pais>();
-
+        paisesAmerica = new ArrayList<String>(7);
         //llenamos el arraylist con objetos de la clase Continentes
-        listaContPais.add(new Pais("America", "Canada"));
-        listaContPais.add(new Pais("America", "Argentina"));
-        listaContPais.add(new Pais("America", "Brasil"));
-        listaContPais.add(new Pais("America", "El Salvador"));
-        listaContPais.add(new Pais("America", "Mexico"));
-        listaContPais.add(new Pais("America", "Chile"));
-        listaContPais.add(new Pais("America", "Belice"));
+        paisesAmerica.add("Canada");//1
+        paisesAmerica.add("Argentina");//2
+        paisesAmerica.add("Brasil");//3
+        paisesAmerica.add("El Salvador");//4
+        paisesAmerica.add("Mexico");//5
+        paisesAmerica.add("Chile");//6
+        paisesAmerica.add("Belice");//7
 
+    }
+    public void llenarCapitalesAmericano(){
+
+        //Creamos el objeto
+        capitalesAmerica = new ArrayList<String>(7);
+        //llenamos el arraylist con objetos de la clase Continentes
+        capitalesAmerica.add("Ottawa");//1
+        capitalesAmerica.add("Buenos Aires");//2
+        capitalesAmerica.add("Brazilia");//3
+        capitalesAmerica.add("San Salvador");//4
+        capitalesAmerica.add("Mexico DF");//5
+        capitalesAmerica.add("Santiago de Chile");//6
+        capitalesAmerica.add("Belmopan");//7
 
     }
 
     public void llenarContinententeAfricano(){
 
         //Creamos el objeto
-        listaContPais=new ArrayList<Pais>();
-
         //llenamos el arraylist con objetos de la clase Continentes
-        listaContPais.add(new Pais("Americano", "Canada"));
-        listaContPais.add(new Pais("Americano", "Argentina"));
-        listaContPais.add(new Pais("Americano", "Brasil"));
-        listaContPais.add(new Pais("Americano", "El Salvador"));
-        listaContPais.add(new Pais("Americano", "Mexico"));
-        listaContPais.add(new Pais("Americano", "Chile"));
-        listaContPais.add(new Pais("Americano", "Belice"));
+        paisesAfrica.add(("Angola"));
+        paisesAfrica.add(("Argelia"));
+        paisesAfrica.add(("Egipto"));
+        paisesAfrica.add(("Benin"));
+        paisesAfrica.add(("Congo"));
+        paisesAfrica.add(("Ghana"));
+        paisesAfrica.add(("Camerún"));
 
     }
+    public void llenarCapitalesAfrica(){
 
-    public void llenarContinententeAsia(){
-
+        capitalesAfrica.add(("Luanda"));
+        capitalesAfrica.add(("Argel"));
+        capitalesAfrica.add(("El Cairo"));
+        capitalesAfrica.add(("Porto Novo"));
+        capitalesAfrica.add(("Brazzaville"));
+        capitalesAfrica.add(("Accra"));
+        capitalesAfrica.add(("Libreville"));
     }
 
     public void llenarContinententeEuropa(){
 
-        //Creamos el objeto
-        listaContPais=new ArrayList<Pais>();
+        paisesEuropa.add("Alemania");
+        paisesEuropa.add("Belgica");
+        paisesEuropa.add("Bulgaria");
+        paisesEuropa.add("Croacia");
+        paisesEuropa.add("Dinamarca");
+        paisesEuropa.add("Eslovenia");
+        paisesEuropa.add("España");
+    }
 
-        //llenamos el arraylist con objetos de la clase Continentes
-        listaContPais.add(new Pais("Europa", "Alemania"));
-        listaContPais.add(new Pais("Europa", "Belgica"));
-        listaContPais.add(new Pais("Europa", "Bulgaria"));
-        listaContPais.add(new Pais("Europa", "Croacia"));
-        listaContPais.add(new Pais("Europa", "Dinamarca"));
-        listaContPais.add(new Pais("Europa", "Eslovenia"));
-        listaContPais.add(new Pais("Europa", "España"));
+    public void llenarCapitalesEuropa(){
+
+
+        capitalesEuropa.add(("Berlin"));
+        capitalesEuropa.add(("Bruselas"));
+        capitalesEuropa.add(("Sofia"));
+        capitalesEuropa.add(("Zagreb"));
+        capitalesEuropa.add(("Copenhague"));
+        capitalesEuropa.add(("Liubliana"));
+        capitalesEuropa.add(("Madrid"));
+
 
 
     }
+    public void llenarContinententeOceania(){
 
+        paisesOceania.add("Australia");
+        paisesOceania.add("Kiribati");
+        paisesOceania.add("Nauru");
+        paisesOceania.add("Palau");
+        paisesOceania.add("Samoa");
+        paisesOceania.add("Tonga");
+        paisesOceania.add("Tuvalu");
 
+    }
+    public void llenarCapitalesOceania(){
 
-    //Creamos una clase y heredamos de la clase ArrayAdapter para llenar el listView con los componentes View de xmlContinente
-    class AdaptadorPaises extends ArrayAdapter<Pais>{
-        AppCompatActivity appCompatActivity;
+        capitalesOceania.add(("Canberra"));
+        capitalesOceania.add(("Bairiki"));
+        capitalesOceania.add(("Yaren"));
+        capitalesOceania.add(("Koror"));
+        capitalesOceania.add(("Apia"));
+        capitalesOceania.add(("Nukualofa"));
+        capitalesOceania.add(("Fongafale"));
+    }
+    public void llenarContinententeAsia(){
 
-        //Creamos un constructor y usamos super para poder acceder a los elementos de la clase ArrayAdapter
-        AdaptadorPaises(AppCompatActivity context){
-            super(context, R.layout.xmlpaisesc, listaContPais);
-            appCompatActivity=context;
-        }
+        paisesAsia.add("Armenia");
+        paisesAsia.add("Camboya");
+        paisesAsia.add("China");
+        paisesAsia.add("India");
+        paisesAsia.add("Irak");
+        paisesAsia.add("Israel");
+        paisesAsia.add("Japon");
+    }
+    public void llenarCapitalesAsia(){
 
-        //Creamos un metodo de tipo View para poder generara los componentes en el ListView
-
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-            LayoutInflater inflater=appCompatActivity.getLayoutInflater();
-            View item=inflater.inflate(R.layout.xmlpaisesc, null);
-
-            TextView txtNom=item.findViewById(R.id.txtNomContinen);
-            //Mostramos la informacion de cada elemento dependiendo de su posicion
-            txtNom.setText(listaContPais.get(position).getnPais());
-
-
-          /*
-            RadioButton radios=item.findViewById(R.id.rdbPaisX);
-           if(rock.equals("Checkbox")){
-
-            }
-
-            if(rock.equals("radios")){
-                RadioButton radio=item.findViewById(R.id.rdbPaisX);
-                radio.setText(listaContPais.get(position).getnContinente());
-
-
-            }
-
-             ImageView imagenCon=item.findViewById(R.id.imagenCont);
-
-          if(listaContPais.get(position).getImagenC()=="Americano"){
-                imagenCon.setImageResource(R.mipmap.america);
-            }
-
-            if(listaContPais.get(position).getImagenC()=="Europa"){
-                imagenCon.setImageResource(R.mipmap.europa);
-            }
-
-            if(listaContPais.get(position).getImagenC()=="Asia"){
-                imagenCon.setImageResource(R.mipmap.asia);
-            }
-
-            if(listaContPais.get(position).getImagenC()=="Africa"){
-                imagenCon.setImageResource(R.mipmap.africa);
-            }
-
-            if(listaContPais.get(position).getImagenC()=="Oceania"){
-                imagenCon.setImageResource(R.mipmap.oceania);
-            } */
-
-
-
-            return (item);
-        }
+        capitalesAsia.add("Erevan");
+        capitalesAsia.add("Phnom Penh");
+        capitalesAsia.add("Pekin");
+        capitalesAsia.add("Nueva Delhi");
+        capitalesAsia.add("Bagdad");
+        capitalesAsia.add("Jerusalen");
+        capitalesAsia.add("Tokio");
     }
 
 
-
-}
+    }

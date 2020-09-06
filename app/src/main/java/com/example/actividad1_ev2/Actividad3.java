@@ -85,17 +85,20 @@ public class Actividad3 extends AppCompatActivity {
                             c.putExtra("OPCION",Sel);
                             //Ahora iniciamos la proxima actividad declarada en "c"
                             startActivity(c);
+
                         }else{
+
                             Mensajes("Seleccione un Lugar");
+
                         }
 
                         if(rbCheckBox.isChecked()){
 
                             Sel=rbCheckBox.getText().toString();
                             continente=getIntent().getStringExtra("CONTINENTE");
-                            c.putExtra("CONTINENTE",continente);
-                            c.putExtra("LUGAR",Lugar);
-                            c.putExtra("OPCION",Sel);
+                            cc.putExtra("CONTINENTE",continente);
+                            cc.putExtra("LUGAR",Lugar);
+                            cc.putExtra("OPCION",Sel);
                             //Ahora iniciamos la proxima actividad declarada en "cc"
                             startActivity(cc);
                         }else
