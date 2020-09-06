@@ -63,7 +63,7 @@ public class Actividad2 extends AppCompatActivity {
         listacontinentes.add(new csContinente("Europa",'B'));
         listacontinentes.add(new csContinente("Asia",'C'));
         listacontinentes.add(new csContinente("Africa",'D'));
-        listacontinentes.add(new csContinente("Australia",'E'));
+        listacontinentes.add(new csContinente("Oceania",'E'));
     }
 
     class AdaptadorContinentes extends ArrayAdapter<csContinente> {
