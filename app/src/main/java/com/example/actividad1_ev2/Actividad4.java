@@ -53,7 +53,11 @@ public class Actividad4 extends AppCompatActivity {
 
         //Obtenemos el valor de el Radio o checkbox seleccionado
         rock=getIntent().getStringExtra("OPCION");
-        lugar = getIntent().getStringExtra("LUGAR");
+        lugar = getIntent().getStringExtra("LUGAR");  //Condicion redirecciona aqui Actividad41
+        if(lugar.equals("RadioButton")){
+            Intent intent=new Intent(Actividad4.this, Actividad41.class);
+
+        }
 
 
 

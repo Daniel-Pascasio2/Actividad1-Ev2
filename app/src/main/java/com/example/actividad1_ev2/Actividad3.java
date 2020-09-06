@@ -90,8 +90,8 @@ public class Actividad3 extends AppCompatActivity {
                             //En este caso son Continente,Lugar y Seleccion
                             continente=getIntent().getStringExtra("CONTINENTE");
                             c.putExtra("CONTINENTE",continente);
-                            c.putExtra("LUGAR",Lugar);
-                            c.putExtra("OPCION",Sel);
+                            c.putExtra("LUGAR",Lugar);//
+                            c.putExtra("OPCION",Sel);//Condicion
                             //Ahora iniciamos la proxima actividad declarada en "c"
                             startActivity(c);
                         }else{
