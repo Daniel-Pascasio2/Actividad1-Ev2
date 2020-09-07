@@ -27,31 +27,32 @@ public class Actividad3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividad3);
-        //Declaracion de variables
-        btnAtrasA2 = findViewById(R.id.btnAtrasA2);
-        btnSiguienteA4= findViewById(R.id.btnSiguienteA4);
-        rbRios = findViewById(R.id.rbRios);
-        rbLagos = findViewById(R.id.rbLagos);
-        rbVolcanes = findViewById(R.id.rbVolcanes);
-        rbRadioButton = findViewById(R.id.rbRadioButton);
-        rbCheckBox = findViewById(R.id.rbCheckBox);
-        txtContinente = findViewById(R.id.txtContinente);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_actividad3);
+            //Declaracion de variables
+            btnAtrasA2 = findViewById(R.id.btnAtrasA2);
+            btnSiguienteA4= findViewById(R.id.btnSiguienteA4);
+            rbRios = findViewById(R.id.rbRios);
+            rbLagos = findViewById(R.id.rbLagos);
+            rbVolcanes = findViewById(R.id.rbVolcanes);
+            rbRadioButton = findViewById(R.id.rbRadioButton);
+            rbCheckBox = findViewById(R.id.rbCheckBox);
+            txtContinente = findViewById(R.id.txtContinente);
 
-        //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
-        final String continente = getIntent().getStringExtra("CONTINENTE");
-        txtContinente.setText("Continente: "+continente);
+            //getIntent().getStringExtra(Nombre) obtiene los valores de Actividad3, los almaceno en n1,n2 y n3
+            final String continente = getIntent().getStringExtra("CONTINENTE");
 
-        btnAtrasA2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
-                Intent i = new Intent(Actividad3.this, Actividad2.class);
-                startActivity(i);
-            }
+            txtContinente.setText("Continente: "+continente);
 
-        });
+            btnAtrasA2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
+                    Intent i = new Intent(Actividad3.this, Actividad2.class);
+                    startActivity(i);
+                }
+
+            });
             btnSiguienteA4.setOnClickListener(new View.OnClickListener() {
                 //creo objeto para desplazarme a la activity4
                 Intent c = new Intent(Actividad3.this, Actividad4.class);
@@ -59,6 +60,8 @@ public class Actividad3 extends AppCompatActivity {
                 //variables booleanas que almacenaran si un rbLUGAR y rbOPCION se han seleccionado
                 boolean xt=false;
                 boolean yt=false;
+
+
 
                 @Override
 

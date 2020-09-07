@@ -93,6 +93,7 @@ public class Actividad4 extends AppCompatActivity {
         switch (dato){
 
             case "America":
+
                 rbPais1.setText(paisesAmerica.get(0));
                 rbPais2.setText(paisesAmerica.get(1));
                 rbPais3.setText(paisesAmerica.get(2));
@@ -213,9 +214,6 @@ public class Actividad4 extends AppCompatActivity {
                 }
             }
         });
-
-
-
 
         btnAtrasA4.setOnClickListener(new View.OnClickListener() {
             @Override
