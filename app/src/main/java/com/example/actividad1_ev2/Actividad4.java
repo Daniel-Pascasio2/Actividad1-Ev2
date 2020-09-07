@@ -63,18 +63,20 @@ public class Actividad4 extends AppCompatActivity {
         btnAtrasA4 = findViewById(R.id.btnAtrasA4);
         btnContinuarA5 = findViewById(R.id.btnContinuarA5);
         //listaPaises = findViewById(R.id.listaPaises);
-
+        final Intent i = new Intent(Actividad4.this, Actividad3.class);
         dato = getIntent().getStringExtra("CONTINENTE");
         txtCont.setText(dato);
         nombreContinente = txtCont.getText().toString();
+
 
         //Obtenemos el valor de el Radio o checkbox seleccionado
         rock = getIntent().getStringExtra("OPCION");
         lugar = getIntent().getStringExtra("LUGAR");
 
+
         //Creando objeto de el RadioGroup
         final RadioGroup ListadoRB = (RadioGroup)findViewById(R.id.rgButtons);
-
+        i.putExtra("CONT",dato);
         llenarContinententeAmericano();
             llenarCapitalesAmericano();
 
@@ -166,46 +168,44 @@ public class Actividad4 extends AppCompatActivity {
 
         ListadoRB.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
-
-            public void onCheckedChanged(RadioGroup group, int checkedId)
+            public void onCheckedChanged(RadioGroup group,int checkedId)
             {
 
                 RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
                 boolean isChecked = checkedRadioButton.isChecked();
                 if (isChecked)
                 {
-
                     switch (dato){
                         //(checkedId-2131165368)
                         case "America":
-                            //txtE.setText((checkedId-2131165368));
-                            capitala=capitalesAmerica.get((checkedId-2131165370));
+
+                            capitala=capitalesAmerica.get((checkedId-2131165376));
                             paisa = checkedRadioButton.getText().toString();
 
                             break;
                         case"Asia":
+
                             //txtE.setText((checkedId-2131165368));
-                            //txtE.setText((checkedId-2131165368));
-                            capitala=capitalesAsia.get((checkedId-2131165370));
+                            capitala=capitalesAsia.get((checkedId-2131165376));
                             paisa = checkedRadioButton.getText().toString();
 
                             break;
                         case"Europa":
                             //txtE.setText((checkedId-2131165368));
-                            capitala=capitalesEuropa.get((checkedId-2131165370));
+                            capitala=capitalesEuropa.get((checkedId-2131165376));
                             paisa = checkedRadioButton.getText().toString();
 
                             break;
                         case"Oceania":
                             //txtE.setText((checkedId-2131165368));
-                            capitala=capitalesOceania.get((checkedId-2131165370));
+                            capitala=capitalesOceania.get((checkedId-2131165376));
                             paisa = checkedRadioButton.getText().toString();
 
                             break;
                         case"Africa":
                             //txtLugar.setText(capitalesAfrica.get((checkedId-2131165370)));
                             //txtE.setText((checkedId-2131165368));
-                            capitala=capitalesAfrica.get((checkedId-2131165370));
+                            capitala=capitalesAfrica.get((checkedId-2131165376));
                             paisa = checkedRadioButton.getText().toString();
 
                             break;
@@ -219,7 +219,7 @@ public class Actividad4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Objeto intent para retornar al MainActivity (Aca modificar para que retorne al Activity2)
-                Intent i = new Intent(Actividad4.this, Actividad3.class);
+
                 startActivity(i);
             }
 
