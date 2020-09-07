@@ -25,6 +25,7 @@ public class Actividad41 extends AppCompatActivity {
     //Adaptador para esta clase
     AdaptadorPais adaptadorCuyito;
     ArrayList<String> CuyitoSeleccionado;
+    ArrayList<String> CapitalSeleccionado;
 
     //Arreglos llenado
 
@@ -59,6 +60,7 @@ public class Actividad41 extends AppCompatActivity {
         lvlPaisR=findViewById(R.id.lvlPaisesR);
         //Referenciamos La lista String
         CuyitoSeleccionado=new ArrayList<String>();
+        CapitalSeleccionado=new ArrayList<String>();
 
         //Invocamos al new
         if(nombreContinente.equals("Europa")){
@@ -175,7 +177,7 @@ public class Actividad41 extends AppCompatActivity {
                     //Aqui lo contrario que la anterio a true
                     llenarPaisesA.get(i).setChekeado(true);
                     CuyitoSeleccionado.add(llenarPaisesA.get(i).getnPais());
-                    CuyitoSeleccionado.add(llenarPaisesA.get(i).getnCapital());
+                    CapitalSeleccionado.add(llenarPaisesA.get(i).getnCapital());
                 }
                 adaptadorCuyito.notifyDataSetChanged();
 
@@ -187,10 +189,23 @@ public class Actividad41 extends AppCompatActivity {
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Actividad41.this, Activity5.class);
+                Intent intent=new Intent(Actividad41.this, Actividad52.class);
                 intent.putExtra("PAIS", CuyitoSeleccionado);
+                intent.putExtra("CAPITAL", CapitalSeleccionado);
+                intent.putExtra("CONTINENTE",nombreContinente);
+                intent.putExtra("LUGAR",lugarSeleccionado);
+
                 startActivity(intent);
 
+            }
+        });
+
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Actividad41.this, Actividad3.class);
+                intent.putExtra("CONTINENTE",nombreContinente);
+                startActivity(intent);
             }
         });
 

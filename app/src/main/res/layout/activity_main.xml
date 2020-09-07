@@ -1,53 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="204dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="3dp"
+        app:srcCompat="@mipmap/logo" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="250dp"
-                android:layout_height="300dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                app:srcCompat="@mipmap/logo" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txt1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="  Calderon Guadron, Douglas Andres"
-                    android:textAlignment="viewStart"
-                    android:textSize="16dp"
+                    android:text="Calderon Guadron, Douglas Andres 25-2865-2016"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -55,8 +33,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="  Cerón Arias, Johanna Isabel"
-                    android:textSize="16dp"
+                    android:text="  Cerón Arias, Johanna Isabel 25-1656-2016"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -64,8 +44,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="  Pascasio Calderon, José Daniel"
-                    android:textSize="16dp"
+                    android:text="  Pascasio Calderon, José Daniel 25-1670-2016"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -73,67 +55,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="  Vásquez Chávez, Kevin Alexander"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txt5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="25-2865-2016"
-                    android:textSize="16dp"
-                    android:paddingLeft="5dp"
+                    android:text="  Vásquez Chávez, Kevin Alexander 25-2281-2014"
                     android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="3dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txt6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="25-1656-2016"
-                    android:textSize="16dp"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txt7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="25-1670-2016"
-                    android:textSize="16dp"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txt8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="25-2281-2014"
-                    android:textSize="16dp"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnAvanza"
@@ -141,7 +69,5 @@
                 android:layout_height="wrap_content"
                 android:text="CONTINUAR" />
 
-        </LinearLayout>
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
