@@ -33,11 +33,6 @@ public class Actividad41 extends AppCompatActivity {
     ArrayList<String> Lugares;
 
 
-
-
-
-
-
     ArrayList<Paises2> llenarPaisesA;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
