@@ -22,8 +22,8 @@ public class Actividad52 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_actividad52);
+
         btnRegresar=findViewById(R.id.btnRegresar1);
         txtCant=findViewById(R.id.txtCant);
 
@@ -45,7 +45,7 @@ public class Actividad52 extends AppCompatActivity {
 
         }
         Sel=String.valueOf(j+1);
-        txtCant.setText(Sel);
+        txtCant.setText("Paises Seleccionados: "+Sel);
 
 
 

@@ -19,14 +19,14 @@
         />
 
     <ListView
-    android:id="@+id/lvlPaisesR"
-    android:layout_width="match_parent"
-    android:layout_height="180dp" />
+        android:id="@+id/lvlPaisesR"
+        android:layout_width="match_parent"
+        android:layout_height="184dp" />
 
     <TextView
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/txtSelectLugares"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:text="Rios"
         android:textStyle="bold"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
     <ListView
         android:id="@+id/lvlLugares"
         android:layout_width="match_parent"
-        android:layout_height="133dp"
+        android:layout_height="176dp"
         android:layout_marginTop="5dp" />
 
     <LinearLayout

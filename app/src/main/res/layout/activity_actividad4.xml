@@ -4,73 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Actividad4"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Actividad3">
 
 
     <TextView
         android:id="@+id/txtConti"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:text="Continentes:"
         android:gravity="center"
-        android:text="Continente:"
+        android:textStyle="bold"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        />
 
-    <RadioGroup
-        android:id="@+id/rgButtons"
-        android:layout_width="419dp"
-        android:layout_height="238dp">
+    <ListView
+        android:id="@+id/lvlPaises"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice">
 
-        <RadioButton
-            android:id="@+id/rbPais1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/rbPais7"
-            android:layout_width="404dp"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-    </RadioGroup>
-
-
+    </ListView>
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/txtSelectLugares"
-        android:textSize="15dp"
+        android:textSize="20dp"
         android:text="Rios"
         android:textStyle="bold"
         android:layout_width="match_parent"
@@ -80,36 +41,37 @@
 
 
     <ListView
-        android:id="@+id/lvlLugaresc"
-        android:layout_width="match_parent"
-        android:layout_height="133dp" />
-
-    <LinearLayout
+        android:id="@+id/lvlLugares"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:layout_marginTop="5dp" />
+
+    <LinearLayout
+        android:id="@+id/linearNuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
 
         <Button
-            android:id="@+id/btnAtrasA4"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Atras" />
+            android:id="@+id/btnContinuar"
+            android:text="Continuar"
+            />
 
         <Button
-            android:id="@+id/btnContinuarA5"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Siguiente" />
+            android:id="@+id/btnRegresar"
+            android:text="Regresar"
+            />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtE"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:text="" />
 
 
 </LinearLayout>

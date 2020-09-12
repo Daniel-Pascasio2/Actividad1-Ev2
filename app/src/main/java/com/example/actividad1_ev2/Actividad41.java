@@ -167,6 +167,8 @@ public class Actividad41 extends AppCompatActivity {
                 //En caso que la posicion seleccionada gracias a i sea true que lo cambie a false
                 if(llenarPaisesA.get(i).isChekeado()){
                     llenarPaisesA.get(i).setChekeado(false);
+                    CuyitoSeleccionado.remove(llenarPaisesA.get(i).getnPais());
+                    CapitalSeleccionado.remove(llenarPaisesA.get(i).getnCapital());
                 }
                 else {
                     //Aqui lo contrario que la anterio a true
